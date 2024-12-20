@@ -6,6 +6,8 @@ using namespace geode::prelude;
 void updateGroundColorMeltdown2(CCSpriteBatchNode* batch, const cocos2d::ccColor3B& color)
 {
     log::info("a");
+	if (!batch) return;
+	if (!batch->getChildren()) return;
 	for (int i = 0; i < batch->getChildren()->count(); ++i) {
 		log::info("b");
 		auto sprite = (CCSprite*)batch->getChildren()->objectAtIndex(i);

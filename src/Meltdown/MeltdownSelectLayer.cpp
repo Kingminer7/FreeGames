@@ -5,13 +5,19 @@ using namespace geode::prelude;
 
 void updateGroundColorMeltdown2(CCSpriteBatchNode* batch, const cocos2d::ccColor3B& color)
 {
-
+    log::info("a");
 	for (int i = 0; i < batch->getChildren()->count(); ++i) {
+		log::info("b");
 		auto sprite = (CCSprite*)batch->getChildren()->objectAtIndex(i);
+		log::info("c");
 		sprite->setColor(color);
+		log::info("d");
 		for (int o = 0; o < sprite->getChildren()->count(); ++o) {
+			log::info("e");
 			auto spriteChild = (CCSprite*)sprite->getChildren()->objectAtIndex(o);
+			log::info("f");
 			spriteChild->setColor(color);
+			log::info("g");
 		}
 	}
 
@@ -300,8 +306,8 @@ void MeltdownSelectLayer::onPrev(CCObject*) {
 	m_pBoomScrollLayer->moveToPage(m_nLevel - 1);
 }
 void MeltdownSelectLayer::scrollLayerMoved(CCPoint point) {
-	const int pageCount = 4; // Obtener el número de páginas dinámicamente
-	const float threshold = 0.7f; // Umbral para determinar cambios significativos de página
+	const int pageCount = 4; // Obtener el nÃºmero de pÃ¡ginas dinÃ¡micamente
+	const float threshold = 0.7f; // Umbral para determinar cambios significativos de pÃ¡gina
 
 	float x = -point.x / this->m_fWindowWidth;
 	while (x < 0.0f) {
@@ -310,7 +316,7 @@ void MeltdownSelectLayer::scrollLayerMoved(CCPoint point) {
 
 	int ix = std::floor(x);
 
-	// Calcular el desplazamiento relativo dentro de la página actual
+	// Calcular el desplazamiento relativo dentro de la pÃ¡gina actual
 	float offset = x - ix;
 
 	int firstPage = ix % pageCount;
